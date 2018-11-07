@@ -27,11 +27,11 @@ import br.com.livroandroid.carros.domain.CarroService;
  */
 public class CarrosFragment extends BaseFragment{
 
-    private static int tipo;
+    private int tipo;
     protected RecyclerView recyclerView;
     private List<Carro> carros;
 
-    public static CarrosFragment newInstance(){
+    public static CarrosFragment newInstance(int tipo){
 
         Bundle args = new Bundle();
         args.putInt("tipo", tipo);
