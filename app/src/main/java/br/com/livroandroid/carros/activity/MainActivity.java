@@ -20,6 +20,13 @@ public class MainActivity extends br.com.livroandroid.carros.activity.BaseActivi
         setUpToolbar();
         setUpNavDrawer();
         setUpPagerTabs();
+
+        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                snack(view, "Exemplo de FAB.");
+            }
+        });
     }
 
     private void setUpPagerTabs() {

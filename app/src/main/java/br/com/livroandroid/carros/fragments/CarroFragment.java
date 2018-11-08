@@ -33,9 +33,6 @@ public class CarroFragment extends BaseFragment {
         TextView tDesc = view.findViewById(R.id.tDesc);
         tDesc.setText(carro.desc);
 
-        final ImageView imgView = view.findViewById(R.id.img);
-        Picasso.with(getContext()).load(carro.urlFoto).fit().into(imgView);
-
         return view;
     }
 

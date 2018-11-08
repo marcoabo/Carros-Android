@@ -2,6 +2,9 @@ package br.com.livroandroid.carros.activity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
 
 import br.com.livroandroid.carros.R;
 import br.com.livroandroid.carros.domain.Carro;
@@ -19,12 +22,14 @@ public class CarroActivity extends BaseActivity {
         Carro c = (Carro)getIntent().getParcelableExtra("carro");
         getSupportActionBar().setTitle(c.nome);
 
+        ImageView appBarImg = findViewById(R.id.appBarImg);
+        Picasso.with(getContext()).load(c.urlFoto).into(appBarImg);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (b == null){
             CarroFragment frag = new CarroFragment();
             frag.setArguments(getIntent().getExtras());
-            Log.d("marcoantonio", "oi");
             getSupportFragmentManager().beginTransaction().add(R.id.CarroFragment, frag).commit();
         }
     }
