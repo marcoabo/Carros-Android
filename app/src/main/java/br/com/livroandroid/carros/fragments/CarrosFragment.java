@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.List;
 
 import br.com.livroandroid.carros.R;
@@ -75,8 +76,12 @@ public class CarrosFragment extends BaseFragment{
     }
 
     private void taskCarros() {
-        this.carros = CarroService.getCarros(getContext(), tipo);
-        recyclerView.setAdapter(new CarroAdapter(getContext(), carros, onClickCarro()));
+        try {
+            this.carros = CarroService.getCarros(getContext(), tipo);
+            recyclerView.setAdapter(new CarroAdapter(getContext(), carros, onClickCarro()));
+        } catch (IOException e){
+            Log.e("livro", e.getMessage(), e);
+        }
 
     }
 
